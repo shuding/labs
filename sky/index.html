@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Sky</title>
+</head>
+<style>
+  html, body, .layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    top: 0;
+    left: 0;
+    transform: translateZ(0);
+  }
+  .layer {
+    opacity: 1;
+    -webkit-transition: opacity 3s ease-in-out;
+    -moz-transition: opacity 3s ease-in-out;
+  }
+</style>
+<body>
+
+  <div class="layer" id="layer-1"></div>
+  <div class="layer" id="layer-2"></div>
+  <div class="layer" id="layer-3"></div>
+  <div class="layer" id="layer-4"></div>
+
+  <script type="text/javascript" src="sky.js"></script>
+</body>
+</html>
