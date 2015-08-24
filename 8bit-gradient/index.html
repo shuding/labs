@@ -1,0 +1,12 @@
+<script src='gradient.js'></script>
+<canvas></canvas>
+
+<script>
+	var g = new gradient();
+	var c = document.getElementsByTagName('canvas')[0];
+
+	g.setGradient([255, 0, 255], [255, 255, 0]);
+	g.setSize(200, 150);
+	g.setScale(3);
+	g.printTo(c);
+</script>

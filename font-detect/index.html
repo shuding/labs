@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+   <head></head>
+   <body>
+
+      <p id="result"></p>
+      
+      <script>
+            var canvasNode = document.createElement('canvas');
+            canvasNode.width = "35";
+            canvasNode.height = "35"
+
+            var result = document.getElementById('result');
+
+            // We must put this node into the body, otherwise
+            // Safari Windows does not report correctly.
+            canvasNode.style.display = 'none';
+            document.body.appendChild(canvasNode);
+            var ctx = canvasNode.getContext('2d');
+            var s1 = '', s2 = '';
+
+            // draw a black letter 'O', 32px Arial.
+            ctx.textBaseline = "top";
+            ctx.font = "16px sans-serif";
+            ctx.fillStyle = "black";
+            ctx.strokeStyle = "black";
+
+            ctx.fillText("Tx", 0, 0);
+
+            // start at (8,1) and search the canvas from left to right,
+            // top to bottom to see if we can find a non-black pixel.  If
+            // so we return true.
+            for (var j = 1; j <= 32; j++) {
+               for (var i = 1; i <= 32; i++) {
+
+                  var imageData = ctx.getImageData(i, j, 1, 1).data;
+                  var alpha = imageData[3];
+                  s1 += ':' + alpha;
+               }
+            }
+
+            ctx.textBaseline = "top";
+            ctx.font = "16px georgia, sans-serif";
+            ctx.fillStyle = "black";
+            ctx.strokeStyle = "black";
+            ctx.clearRect(0, 0, 35, 35);
+
+            ctx.fillText("Tx", 0, 0);
+
+            // start at (8,1) and search the canvas from left to right,
+            // top to bottom to see if we can find a non-black pixel.  If
+            // so we return true.
+            for (var j = 1; j <= 32; j++) {
+               for (var i = 1; i <= 32; i++) {
+
+                  var imageData = ctx.getImageData(i, j, 1, 1).data;
+                  var alpha = imageData[3];
+                  s2 += ':' + alpha;
+               }
+
+            }
+
+            result.innerHTML = (s1 != s2 ? '1' : '0');
+      </script>
+
+   </body>
+
+</html>
