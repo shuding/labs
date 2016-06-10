@@ -41,6 +41,7 @@ window:before {
     height: calc(100% - 2px);
     margin-top: 1px;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 window:after {
@@ -50,6 +51,7 @@ window:after {
     height: calc(100%);
     margin-left: 1px;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 ctrl {
