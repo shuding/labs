@@ -36,18 +36,18 @@ window.active {
 
 window:before {
     content: "";
-    position: fixed;
-    width: calc(50%);
-    height: calc(50% - 2px);
+    position: absolute;
+    width: calc(100%);
+    height: calc(100% - 2px);
     margin-top: 1px;
     backdrop-filter: blur(5px);
 }
 
 window:after {
     content: "";
-    position: fixed;
-    width: calc(50% - 2px);
-    height: calc(50%);
+    position: absolute;
+    width: calc(100% - 2px);
+    height: calc(100%);
     margin-left: 1px;
     backdrop-filter: blur(5px);
 }
@@ -90,4 +90,22 @@ ctrl span:last-of-type {
 
 .active ctrl span:last-of-type {
     background: linear-gradient(to bottom, #caaeadcc 0%, #cc3a20e6 50%, #ab1d10d9 50%, #c15644de 100%);
+}
+span:hover {
+    box-shadow: 1px -1px 0 0px #ffffff4a inset, -1px -1px 0 0px #ffffff36 inset, 0 0 8px 1px #ffffff80;
+    z-index: 1;
+    position: relative;
+}
+
+span:last-of-type:hover {
+    box-shadow: 1px -1px 0 0px #ffffff4a inset, -1px -1px 0 0px #ffffff36 inset, 0 0 8px 1px #ca1900;
+}
+
+span {
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+
+span:hover {
+    transition: all .3s ease-in;
 }

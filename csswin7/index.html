@@ -1,6 +1,7 @@
 <html>
 <head>
 	<link rel='stylesheet' href="style.polyfill.css">
+	<link rel='stylesheet' href="style.css">
 <script type="text/javascript" src="jquery.js"></script>
 </head>
 
@@ -13,15 +14,79 @@
   </ctrl>
 </window>
 
+	<window style="margin-left: -40px; margin-top: 70px">
+  <ctrl>
+    <span>_</span>
+    <span>o</span>
+    <span>&nbsp;x&nbsp;</span>
+  </ctrl>
+</window>
+
+	<window style="margin-left: 80px; margin-top: 20px; width: 30%">
+  <ctrl>
+    <span>_</span>
+    <span>o</span>
+    <span>&nbsp;x&nbsp;</span>
+  </ctrl>
+</window>
+
+	<window style="margin-left: 220px; margin-top: 140px; width: 500px; height: 100px">
+  <ctrl>
+    <span>_</span>
+    <span>o</span>
+    <span>&nbsp;x&nbsp;</span>
+  </ctrl>
+</window>
+
 <script>
 $(window).load(function(){
-$('body').click(function (el) {
+	var top = 111;
+$('body').on('mousedown', function (el) {
   if (el.target !== document.body) {
- $('window').addClass('active');
+  	$('window').each(function () {
+  		if (el.target == this || [].indexOf.call($(el.target).parents(), this) >= 0) {
+			$(this).addClass('active');
+			$(this).css('z-index', ++top);
+  		} else {
+  			$(this).removeClass('active');
+  		}
+  	});
   } else {
- $('window').removeClass('active');
-  }
+	 $('window').removeClass('active');
+	  }
+	});
+
+var x = 0, y = 0, attach = null;
+$('window').on('mousedown', function (el) {
+	x = el.pageX;
+	y = el.pageY;
+	attach = $(this);
+
 });
+$('body').on('mousemove', function (el) {
+	if (attach !== null) {
+		var rx = 0, ry = 0;
+		if (attach[0].x) {
+			rx = attach[0].x;
+			ry = attach[0].y;
+		}
+		attach.css('transform', 'translateX(' + (el.pageX - x + rx) + 'px) translateY(' + (el.pageY - y + ry) + 'px)');
+	}
+});
+$('body').on('mouseup', function (el) {
+	if (attach !== null) {
+		var rx = 0, ry = 0;
+		if (attach[0].x) {
+			rx = attach[0].x;
+			ry = attach[0].y;
+		}
+		attach[0].x = (el.pageX - x + rx);
+		attach[0].y = (el.pageY - y + ry);
+		attach = null;
+	}
+});
+
+
 });
 </script>
 </body>
