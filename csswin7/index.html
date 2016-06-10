@@ -1,0 +1,28 @@
+<html>
+<head>
+	<link rel='stylesheet' href="style.css">
+<script type="text/javascript" src="jquery.js"></script>
+</head>
+
+<body>
+	<window>
+  <ctrl>
+    <span>_</span>
+    <span>o</span>
+    <span>&nbsp;x&nbsp;</span>
+  </ctrl>
+</window>
+
+<script>
+$(window).load(function(){
+$('body').click(function (el) {
+  if (el.target !== document.body) {
+ $('window').addClass('active');
+  } else {
+ $('window').removeClass('active');
+  }
+});
+});
+</script>
+</body>
+</html>

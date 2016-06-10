@@ -1,0 +1,93 @@
+
+    body {
+  background: url(https://images8.alphacoders.com/373/373730.jpg);
+  background-size: cover;
+      width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+window {
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 25%;
+    background: linear-gradient(56deg, #ffffff0a 20%, #00000026 30%, #00000024 32%, #ffffff0a 33%), 
+    linear-gradient(56deg, #ffffff0a 45%, #00000026 50%, #00000024 52%, #ffffff0a 53%),
+    linear-gradient(-45deg, #fff0 calc(100% - 100px), #ffffff15 calc(100% - 50px), #ffffff15 100%),
+    linear-gradient(45deg, #fff0 calc(100% - 100px), #ffffff15 calc(100% - 50px), #ffffff15 100%);
+    border-top: 1px solid #ffffffbd;
+    border-bottom: 1px solid #ffffff8a;
+    border-left: 1px solid #ffffff8a;
+    border-right: 1px solid #ffffff57;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #0000004d, 0 -2px 0 -1px #00000069, 0 2px 0 -1px #0000004f, 1px 2px 9px 2px #0000009c;
+    z-index: 111;
+}
+
+window.active {
+    box-shadow: 0 0 0 1px #0000004d, 0 -2px 0 -1px #00000069, 0 2px 0 -1px #0000004f, 1px 3px 11px 3px #000000c4;
+    background: linear-gradient(56deg, #ffffff0a 20%, #00000026 30%, #00000024 32%, #ffffff0a 33%), 
+    linear-gradient(56deg, #ffffff0a 45%, #00000026 50%, #00000024 52%, #ffffff0a 53%),
+    linear-gradient(-45deg, #fff0 calc(100% - 100px), #ffffff30 calc(100% - 50px), #ffffff30 100%),
+    linear-gradient(45deg, #fff0 calc(100% - 100px), #ffffff30 calc(100% - 50px), #ffffff30 100%);
+}
+
+window:before {
+    content: "";
+    position: fixed;
+    width: calc(50%);
+    height: calc(50% - 2px);
+    margin-top: 1px;
+    backdrop-filter: blur(5px);
+}
+
+window:after {
+    content: "";
+    position: fixed;
+    width: calc(50% - 2px);
+    height: calc(50%);
+    margin-left: 1px;
+    backdrop-filter: blur(5px);
+}
+
+ctrl {
+    position: absolute;
+    z-index: 1;
+    right: 3px;
+    font-family: consolas, sans-serif;
+    color: #fff;
+    text-shadow: 0 0 1px #000;
+    font-size: 0;
+    box-shadow: 0 1px 0 1px #ffffff82;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+ctrl span {
+    border: 1px solid #00000085;
+    box-shadow: 1px -1px 0 0px #ffffff4a inset, -1px -1px 0 0px #ffffff36 inset;
+    border-top: none;
+    font-size: 15px;
+    padding: 2px 9px;
+    border-right: none;
+    line-height: 1.2;
+}
+
+ctrl span:first-of-type {
+    border-bottom-left-radius: 4px;
+}
+
+ctrl span:last-of-type {
+    border-bottom-right-radius: 4px;
+    border-right: 1px solid #00000085;
+}
+
+.active ctrl span {
+    background: linear-gradient(to bottom, #cccccc73 0%, #d4d4d4b8 50%, #b5b5b573 50%, #c3c3c380 100%);
+}
+
+.active ctrl span:last-of-type {
+    background: linear-gradient(to bottom, #caaeadcc 0%, #cc3a20e6 50%, #ab1d10d9 50%, #c15644de 100%);
+}
