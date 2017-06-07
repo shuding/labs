@@ -1,0 +1,81 @@
+<style>
+  @font-face {
+    font-family: 'Anonymous Pro';
+    src: local('Anonymous Pro Bold'), local('AnonymousPro-Bold'), url(AnonymousPro-Bold.woff2) format('woff2');
+  }
+
+  body {
+    font-family: 'Anonymous Pro', monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url(bg.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0b0b0b;
+    overflow: hidden;
+  }
+  h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 26vmin;
+    transform: translate(3%, -46%);
+    text-shadow: 0 0 2px #b5e4ff;
+    color: white;
+  }
+  h1.stopped {
+    text-shadow: 0 0 100px #b5e4ff;
+  }
+</style>
+<script>
+window.range = 150
+window.idle = 20
+window.onload = function () {
+
+  var num = document.getElementsByTagName('h1')[0]
+  var paused = true
+  var lock = false
+  var delay = 0
+  function tick() {
+    // lagging effect
+    if (paused) {
+      delay *= 1.2
+      if (delay >= 300) {
+        lock = false
+        num.className = 'stopped'
+        return
+      }
+    } else if (delay > idle) {
+      delay /= 2
+    } else if (delay < idle) {
+      delay = idle
+    }
+    var n = ~~(Math.random() * range) + 1
+    num.innerHTML = [100, 10, 1].map(function (x) {
+      var s = '' + ~~(n / x)
+      n %= x
+      return s
+    }).join('')
+    setTimeout(tick, delay)
+  }
+  function start() {
+    num.className = ''
+    if (lock) return
+    lock = true
+    paused = false
+    tick()
+  }
+  function pause() {
+    paused = true
+  }
+  function toggle(e) {
+    if (e.keyCode !== 32) return
+    if (paused) start()
+    else pause()
+  }
+  document.addEventListener('keydown', toggle, false)
+}
+</script>
+
+<h1>000</h1>
